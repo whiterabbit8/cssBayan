@@ -96,6 +96,7 @@ input {
     width: inherit;
     margin: 15px auto;
     justify-content: center;
+    animation: show 0.3s ease-in-out;
 }
 
 img {
@@ -112,4 +113,15 @@ label:hover > .content,
 input:checked + label > .item > .item-logo,
 label:hover .item-logo {
     transform: rotate(180deg);
+}
+
+@-webkit-keyframes show {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
 }
