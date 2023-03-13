@@ -213,8 +213,8 @@ input:checked + label > .item > .item-icon {
         height: 1em;
         width: 1em;
     }
-
-    img {
+    
+    input:checked + label > .content > img {
         width: 75%;
     }
 }
@@ -241,7 +241,7 @@ input:checked + label > .item > .item-icon {
         width: 0.8em;
     }
 
-    img {
+    input:checked + label > .content > img {
         width: 100%;
     }
 }
