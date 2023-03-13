@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    transition: all 0.3s ease-in-out;
 }
 
 * {
@@ -32,7 +33,13 @@ h1 {
 }
 
 .container {
+    width: inherit;
     transition: 0.3s;
+}
+
+.item-container {
+    width: 100%;
+    display: flex;
 }
 
 @media (hover :hover) {
@@ -66,7 +73,7 @@ label {
     display: block;
     width: inherit;
     padding: 0.75em;
-    border-top: 1px solid #fffce9;
+    border-top: 0.1em solid #fffce9;
     transition: 0.3s;
 }
 
@@ -101,8 +108,8 @@ label:active .item-icon {
 }
 
 input {
-    position: absolute;
     visibility: hidden;
+    width: 0;
 }
 
 .content {
@@ -134,6 +141,27 @@ input:checked + label > .item > .item-icon {
     100% {
         opacity: 1;
         scale: 1;
+    }
+}
+
+@media (pointer: coarse) {
+    input:checked + label > .item > .item-icon {
+        background: url('images/arrow.svg');
+        background-size: 1.2em;
+        height: 1.2em;
+        width: 1.2em;
+    }
+
+    .item-icon {
+        opacity: 1;
+    }
+
+    label:active .item-icon,
+    input:checked + label:active .item-icon {
+        background: url('images/arrow-active.svg');
+        background-size: 1.2em;
+        height: 1.2em;
+        width: 1.2em;
     }
 }
 
