@@ -1,6 +1,5 @@
 html {
     scroll-behavior: smooth;
-    transition: all 0.3s ease-in-out;
 }
 
 * {
@@ -57,7 +56,13 @@ h1 {
 
     label:hover > .content,
     .content:hover {
-        display: flex;
+        visibility: visible;
+        height: fit-content;
+        margin: 0.75em auto;
+    }
+
+    label:hover > .content > img {
+        width: 50%;
     }
 
     label:hover .item-icon {
@@ -73,7 +78,7 @@ label {
     display: block;
     width: inherit;
     padding: 0.75em;
-    border-top: 0.1em solid #fffce9;
+    border-top: 0.05em solid #fffce9;
     transition: 0.3s;
 }
 
@@ -113,20 +118,27 @@ input {
 }
 
 .content {
-    display: none;
+    display: flex;
+    height: fit-content;
+    margin: 0 auto;
     width: inherit;
-    margin: 0.75em auto;
     justify-content: center;
-    animation: show 0.3s ease-in-out;
+    transition: 0.5s;
 }
 
 img {
-    width: 50%;
+    width: 0;
     height: auto;
+    transition: 0.5s;
+    animation: show 0.3s ease-in-out;
 }
 
 input:checked + label > .content {
-    display: flex;
+    margin: 0.75em auto;
+}
+
+input:checked + label > .content > img {
+    width: 50%;
 }
 
 input:checked + label > .item > .item-icon {
@@ -145,6 +157,10 @@ input:checked + label > .item > .item-icon {
 }
 
 @media (pointer: coarse) {
+    body {
+        color: #fffce9;
+    }
+
     input:checked + label > .item > .item-icon {
         background: url('images/arrow.svg');
         background-size: 1.2em;
@@ -168,7 +184,6 @@ input:checked + label > .item > .item-icon {
 @media screen and (max-width: 820px) {
     body {
         font-size: 1.4em;
-        color: #fffce9;
     }
 
     main {
@@ -181,7 +196,6 @@ input:checked + label > .item > .item-icon {
     }
 
     input:checked + label > .item > .item-icon {
-        background: url('images/arrow.svg');
         background-size: 1em;
         height: 1em;
         width: 1em;
@@ -191,12 +205,10 @@ input:checked + label > .item > .item-icon {
         background-size: 1em;
         height: 1em;
         width: 1em;
-        opacity: 1;
     }
 
     label:active .item-icon,
     input:checked + label:active .item-icon {
-        background: url('images/arrow-active.svg');
         background-size: 1em;
         height: 1em;
         width: 1em;
